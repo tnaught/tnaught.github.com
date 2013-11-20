@@ -1,0 +1,37 @@
+http://www.bolinfest.com/javascript/inheritance.php
+
+在JavaScript中的继承模式
+1.伪类(pseudoclassical)继承模式
+2.方法(functional)继承模式
+Closure Library中使用了第一种，<<JavaScript:The Good Parts>>中使用了第二种。
+
+<<JavaScript:The Good Parts>>一书的作者Douglas Crockford反对使用伪类模式，他认为：
+“
+”
+
+functional pattern的例子
+var Phone = function(spec){
+	var that = {};
+	that.getPhoneNumber = function(){
+		return spec.phoneNumber;
+	}
+	that.getDescription = function(){
+		return "This is a phone";
+	}
+}
+var SmartPhone = function(spec){
+	var that = Phone(spec);
+	spec.signature = spec.signature || 'sent from:'+that.getPhoneNumber();
+	that.sendEmail = function(emailAddress,message){
+		sendMessage(emailAddress,message);
+	}
+	var super_getDescription = that.getDescription;
+	that.getDescription = function(){
+		return super_getDescription()+' It can also send Message';
+	}
+}
+var phone = Phone('1234567');
+var smartPhone = SmartPhone('2222222','from:tt');
+
+对应的伪类的示例：
+
