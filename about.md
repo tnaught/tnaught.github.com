@@ -3,5 +3,5 @@ layout: page
 title: "About"
 description: ""
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 #about.html

@@ -5,7 +5,7 @@ description: ""
 category: "translate"
 tags: [javascript design model]
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 
 原文链接:[http://www.bolinfest.com/javascript/inheritance.php](http://www.bolinfest.com/javascript/inheritance.php)
 
@@ -100,7 +100,7 @@ Crockford这样评价伪类模式：“伪类模式中没有私有的概念，�
 	   */
 	  this.signature_ = signature || 'sent from ' + this.getPhoneNumber();
 	};
-	goog.inherits(SmartPhone, Phone);
+	goog.inherits(SmartPhone, Phone);//这里的逻辑？
 
 	/**
 	 * @param {string} emailAddress

@@ -5,7 +5,7 @@ description: "javascript basic concept"
 category: "translate"
 tags: [javascript concept]
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 
 原文链接:[http://bolinfest.com/javascript/misunderstood.html?utm_campaign=Manong_Weekly_Issue_9&utm_medium=EDM&utm_source=Manong_Weekly](http://bolinfest.com/javascript/misunderstood.html?utm_campaign=Manong_Weekly_Issue_9amp;utm_medium=EDMamp;utm_source=Manong_Weekly)
 

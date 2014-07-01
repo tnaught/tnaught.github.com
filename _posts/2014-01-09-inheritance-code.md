@@ -5,7 +5,7 @@ description: ""
 category: "snippets"
 tags: [javascript inheritance code]
 ---
-{% include JB/setup %}
+<!-- {% include JB/setup %} -->
 
 原文链接:[http://www.crockford.com/javascript/inheritance.html](http://www.crockford.com/javascript/inheritance.html)
 

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#textWrap{
+			margin:100px auto;
+			overflow: hidden;
+			height:30px;
+			position: relative;
+			width:500px;
+			border:1px solid #000;
+		}
+		#textWrap ul{
+			height:30px;
+			position: absolute;
+			list-style: none;
+			padding:0;
+			left:0;
+			top:0;
+			margin:0;
+		}
+		#textWrap ul li{
+			height:30px;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="textWrap">
+		<ul>
+			<li>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
+			<li>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</li>
+			<li>ccccccccccccccccccccccccccccccccccccccc</li>
+			<li>ddddddddddddddddddddddddddddddddddddddd</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		(function($){
+			$.fn.textSlide = function(setting){
+				var setting = $.extend(setting);
+				var _this = $(this);
+				var textObj = _this.find('ul');
+				var textItems = textObj.find('li');
+				var itemHeight = textItems.outerHeight();
+				var itemLen = textItems.length;
+				textObj.append(textItems.eq(0).clone());
+				var totalHeight = itemHeight*itemLen;
+				var _moveItem = 0;
+				var _moveDis = 0;
+				var _speed = setting.speed;
+				var _timeStop = setting.timeStop;
+				var scroll = function(){
+					var lineMove = null;
+					var _height = parseInt(textObj.css('top'));
+					//如果到了最后一行
+
+					if(Math.abs(_height)>=totalHeight){
+						textObj.css('top',0);
+						_moveItem = 0;
+					}
+					//进行一次移动
+					lineMove = setInterval(function(){
+						_moveDis += 1;
+						_moveItem -=1;
+						textObj.css({top:_moveItem+'px'});
+						if(_moveDis == itemHeight){
+							_moveDis = 0;
+							clearInterval(lineMove);
+							setTimeout(scroll,_timeStop);
+						}
+					},_speed);
+				};
+				setTimeout(scroll,_timeStop);
+			}
+			$('#textWrap').textSlide({speed:60,_timeStop:1000});
+		})(jQuery)
+	</script>
+</body>
+</html>
