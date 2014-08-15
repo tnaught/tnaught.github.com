@@ -3,7 +3,8 @@ layout: post
 title: "那些容易被误解的js概念"
 description: "javascript basic concept"
 category: "translate"
-tags: [javascript concept]
+tags: [javascript,concept]
+group: post
 ---
 <!-- {% include JB/setup %} -->
 

@@ -35,7 +35,7 @@
   </head>
 
   <body>
-    <div class="blog-masthead">
+    <!-- <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
           <ul class="nav navbar-nav">
@@ -50,14 +50,18 @@
           </ul>
         </nav>
       </div>
+    </div> -->
+    <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">Just For Fun!</h1>
+        <div class="blog-description">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻</div>
+      </div>
     </div>
     <div class="container">
-      <!-- <div class="blog-header">
-        <h1 class="blog-title">Just For Fun!</h1>
-      </div> -->
       <div class="blog-main">
         {{ content }}
       </div>
+      
       <hr>
       <footer>
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}

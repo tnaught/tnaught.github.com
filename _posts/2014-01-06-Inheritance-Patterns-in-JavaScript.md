@@ -3,7 +3,8 @@ layout: post
 title: "Javascript的继承模式"
 description: ""
 category: "translate"
-tags: [javascript design model]
+tags: [javascript,design,model]
+group: post
 ---
 <!-- {% include JB/setup %} -->
 

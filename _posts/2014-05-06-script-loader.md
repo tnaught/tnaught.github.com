@@ -3,7 +3,8 @@ layout: post
 title: "动态加载script"
 description: ""
 category: "knowledge"
-tags: [javascript script load]
+tags: [javascript,script,load]
+group: post
 ---
 <!-- {% include JB/setup %} -->
 

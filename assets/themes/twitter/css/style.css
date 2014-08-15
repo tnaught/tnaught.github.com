@@ -1,33 +1,82 @@
-/* Custom container
-.container-narrow {
-  margin: 0 auto;
-  max-width: 700px; }
+/*
+ * Globals
+ */
 
-.container-narrow > hr {
-  margin: 30px 0; }
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
 
-.navbar .nav {
-  float: right; }
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
 
-posts index
-.post > h3.title {
-  position: relative;
-  padding-top: 10px; }
+/*
+ * Override Bootstrap's default container.
+ */
 
-.post > h3.title span.date {
-  position: absolute;
-  right: 0;
-  font-size: 0.9em; }
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
 
-.post > .more {
-  margin: 10px 0;
-  text-align: left; }
+/*
+ * Blog name and description
+ */
 
-post-full
-.post-full .date {
-  margin-bottom: 20px;
-  font-weight: bold; } */
+.blog-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom:3px solid #428bca;
+  border-top:8px solid #428bca;
+}
+.blog-title {
+  font-size: 48px;
+  font-weight: normal;
+  font-family: "Lobster Two";
+  font-style:italic;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
 
+/*
+ * sidebar layout
+ */
+
+.blog-main {
+  margin-top:44px;
+  margin-bottom: 60px;
+  line-height: 1.5;
+}
+/* Sidebar for boxing content */
+.blog-right-nav>a{
+  font-size:28px;
+  margin-right:15px;
+}
+.blog-nav-item {margin:15px 0;}
+.blog-nav-title {
+  width:30%;padding-top:39px;padding-left:8px;line-height:1.5;color:#fff;background-color:#428bca;
+  margin:15px 0;
+}
+.pages-list{
+  list-style: none;font-size:14px;
+}
+.pages-list a{
+  margin-left:5px;
+  color:#8b8b8b;
+  line-height: 1.8;
+}
 /* tag_box */
 .tag_box {
   list-style: none;
@@ -64,134 +113,6 @@ post-full
   border: 1px solid #4c964d;
   color: #FFF; }
 
-/*
- * Globals
- */
-
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  color: #333;
-}
-
-p{
-  text-indent: 30px;
-}
-/*
- * Override Bootstrap's default container.
- */
-
-@media (min-width: 1200px) {
-  .container {
-    width: 970px;
-  }
-}
-
-
-/*
- * Masthead for nav
- */
-
-.blog-masthead {
-  background-color: #428bca;
-  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-}
-
-/* Nav links */
-.blog-nav-item a{
-  position: relative;
-  display: inline-block;
-  padding: 10px;
-  font-weight: 500;
-  color: #cdddeb;
-}
-.nav li.blog-nav-item:hover,
-.nav li.blog-nav-item:focus a{
-  color: #fff;
-  text-decoration: none;
-}
-.nav li.blog-nav-item a:hover,.nav li.blog-nav-item a:focus{
-  background-color: #428bca;
-  color: #fff;
-}
-/* Active state gets a caret at the bottom */
-.blog-nav .active, .blog-nav .active a{
-  color: #fff;
-}
-.blog-nav .active:after {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -5px;
-  vertical-align: middle;
-  content: " ";
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid;
-  border-left: 5px solid transparent;
-}
-
-
-/*
- * Blog name and description
- */
-
-.blog-header {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.blog-title {
-  margin-top: 30px;
-  margin-bottom: 0;
-  font-size: 60px;
-  font-weight: normal;
-}
-.blog-description {
-  font-size: 20px;
-  color: #999;
-}
-
-
-/*
- * Main column and sidebar layout
- */
-
-.blog-main {
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-/* Sidebar modules for boxing content */
-.sidebar-module {
-  padding: 15px;
-  margin: 0 -15px 15px;
-}
-.sidebar-module-inset {
-  padding: 15px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-}
-.sidebar-module-inset p:last-child,
-.sidebar-module-inset ul:last-child,
-.sidebar-module-inset ol:last-child {
-  margin-bottom: 0;
-}
-
-
-
 /* Pagination */
 .pager {
   margin-bottom: 60px;
@@ -209,10 +130,6 @@ p{
  * Blog posts
  */
 
-.blog-post {
-  margin-top:44px;
-  margin-bottom: 60px;
-}
 .blog-post-title {
   margin-bottom: 5px;
   font-size: 36px;
@@ -221,8 +138,12 @@ p{
   margin-bottom: 20px;
   color: #999;
 }
-
-
+.blog-post p{
+  text-indent: 2em;
+}
+.blog-post .post-reference{
+  padding-left: 2em;
+}
 /*
  * Footer
  */

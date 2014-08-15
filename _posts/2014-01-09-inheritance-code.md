@@ -3,7 +3,8 @@ layout: post
 title: "Javascript如何实现传统的继承？"
 description: ""
 category: "snippets"
-tags: [javascript inheritance code]
+tags: [javascript,inheritance,code]
+group: post
 ---
 <!-- {% include JB/setup %} -->
 
