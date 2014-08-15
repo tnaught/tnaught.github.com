@@ -7,6 +7,7 @@
 </head>
 <body>
 <div id="test"></div>
+<a href="https://api.weibo.com/2/oauth2/authorize?client_id=1228777171&response_type=token&display=js&transport=html5&referer=http://tnaught.github.io/test-weibo-log"></a>
 <script type="text/javascript">
 	WB2.anyWhere(function(W){
 	    W.widget.connectButton({
@@ -14,6 +15,7 @@
 	        type:"3,2",
 	        callback : {
 	            login:function(o){	//登录后的回调函数
+
 	            	console.log(o)
 	            },	
 	            logout:function(o){	//退出后的回调函数
