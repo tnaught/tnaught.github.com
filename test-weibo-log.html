@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:wb="http://open.weibo.com/wb">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>测试使用微博账号登陆</title>
@@ -14,8 +14,10 @@
 	        type:"3,2",
 	        callback : {
 	            login:function(o){	//登录后的回调函数
+	            	console.log(o)
 	            },	
-	            logout:function(){	//退出后的回调函数
+	            logout:function(o){	//退出后的回调函数
+	            	console.log(o)
 	            }
 	        }
 	    });
