@@ -1,0 +1,88 @@
+---
+layout: post
+title: "margin合并探究"
+---
+
+<h3>一、margin合并到底是什么</h3>
+<p>
+	很早就知道有margin合并这个概念，不过一直都没有吃透，在看别人写的样式后还是会出现这样的疑惑：明明没有设置margin怎么就是有间隔呢，明明几行列表中用的是一个样式为什么会表现不一致呢，到最后都指向了margin合并的这个问题。所以决定来一探究竟。
+</p>
+<p>
+	w3school上的解释是“外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。”<sup>1</sup>"两个垂直外边距相遇"有哪些情况呢？
+</p>
+
+<h3>二、出现合并的几种情况</h3>
+	<ol>
+		<li>
+			兄弟元素之间margin的合并.例如：
+{% highlight html %}
+.parent{border:1px solid #eee;margin:10px auto;}
+.A,.B,.C{margin:20px 0;}
+<div class="parent">
+	<p class="A">这是第一个子节点A</p>
+	<p class="B">这是第二个子节点B</p>
+	<p class="C">这是第三个子节点C</p>
+</div>
+{% endhighlight %}
+<div style="border:1px solid #eee;background-color:rgb(245,245,245);margin:10px auto;">
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第一个子节点A</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第二个子节点B</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第三个子节点C</p>
+</div>
+<p>A的margin-top和B的margin-bottom相遇后合并为了一个margin，因为A的margin-bottom和B的margin-top都为20px，所以A和B之间的间隔为20px。同理，B
+的margin-bottom和C的margin-top发生了合并。</p>
+
+<p>并不是任何相邻元素之间都会发生垂直方向的margin合并，当给B元素设置float样式时，A和B之间的margin为40px，即不会发生合并，当C元素的display为inline-block时，B和C之间也不会发生margin合并。例如：</p>
+<div style="border:1px solid #eee;background-color:rgb(245,245,245);margin-bottom:10px; auto">
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第一个子节点A</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;float:left;clear:both;width:100%;">这是第二个子节点B,style="float:left;clear:both;width:100%;"</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;display:inline-block;width:100%;">这是第三个子节点C,style="inline-block;width:100%;"</p>
+</div>
+<p>w3school给出的注释是：只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</p>
+		</li>
+		<li>父元素与子元素之间的margin合并，还是看上面的那个例子：
+{% highlight html %}
+.parent{margin:10px auto;}
+.A,.B,.C{margin:20px 0;}
+<div class="parent">
+	<p class="A">这是第一个子节点A</p>
+	<p class="B">这是第二个子节点B</p>
+	<p class="C">这是第三个子节点C</p>
+</div>
+{% endhighlight %}
+		<div style="background-color:rgb(245,245,245);margin:10px auto;">
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第一个子节点A</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第二个子节点B</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第三个子节点C</p>
+</div>
+<p>当去掉父元素的border样式后，A、C元素和父元素之间的margin不存在了。这是因为A的margin-top遇到parent的margin-top后发生了合并，合并为parent的margin-top。同理，C的margin-bottom也与parent的margin-bottom发生了合并。</p>
+		</li>
+		<li>单一元素的margin-top和margin-bottom
+{% highlight html %}
+.parent{border:1px solid #eee;margin:10px auto;}
+.A,.C{margin:10px 0;}
+.B{margin:20px 0;}
+<div class="parent">
+	<p class="A">这是第一个子节点A</p>
+	<p class="B"></p>
+	<p class="C">这是第三个子节点C</p>
+</div>
+{% endhighlight %}
+		<div style="border:1px solid #eee;background-color:rgb(245,245,245);margin:10px auto;">
+	<p style="background-color:rgb(191,255,255);margin:10px 0;">这是第一个子节点A，margin:10px 0;下面有一个空节点，margin:20px 0;</p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;"></p>
+	<p style="background-color:rgb(191,255,255);margin:20px 0;">这是第三个子节点C</p>
+</div>
+<p>空元素B的margin-top和margin-bottom合并为一个margin后再根据前面两种合并方式与相邻以及父元素的margin发生合并</p>
+</li>
+	</ol>
+
+
+<hr>
+<div class="post-reference">
+	<h4>参考资料</h4>
+	<a class="reference-item" href="http://www.w3school.com.cn/css/css_margin_collapsing.asp">1.http://www.w3school.com.cn/css/css_margin_collapsing.asp</a><br/>
+	<a class="reference-item" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin_collapsing">2.https://developer.mozilla.org/en-US/docs/Web/CSS/margin_collapsing</a><br/>
+	<a class="reference-item" href="http://www.seifi.org/css/understanding-taming-collapsing-margins-in-css.html">3.http://www.seifi.org/css/understanding-taming-collapsing-margins-in-css.html</a><br/>
+</div>
+<hr>
