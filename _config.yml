@@ -5,7 +5,7 @@ email: tianqin1103@gmail.com
 description: > 
   书写是为了更好的思考
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+url: "http://tnaught.github.com" # the base hostname & protocol for your site
 github_username:  tnaught
 
 # Build settings
