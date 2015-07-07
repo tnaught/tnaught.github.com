@@ -1,0 +1,161 @@
+/*
+ * Globals
+ */
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/*
+ * Blog name and description
+ */
+
+.blog-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom:3px solid #428bca;
+  border-top:8px solid #428bca;
+}
+.blog-title {
+  font-size: 48px;
+  font-weight: normal;
+  font-family: "Lobster Two";
+  font-style:italic;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
+
+/*
+ * sidebar layout
+ */
+
+.blog-main {
+  margin-top:44px;
+  margin-bottom: 60px;
+  line-height: 1.5;
+}
+/* Sidebar for boxing content */
+.blog-right-nav>a{
+  font-size:28px;
+  margin-right:15px;
+}
+.blog-nav-item {margin:15px 0;}
+.blog-nav-title {
+  width:30%;padding-top:39px;padding-left:8px;line-height:1.5;color:#fff;background-color:#428bca;
+  margin:15px 0;
+}
+.pages-list{
+  list-style: none;font-size:14px;
+}
+.pages-list a{
+  margin-left:5px;
+  color:#8b8b8b;
+  line-height: 1.8;
+}
+/* tag_box */
+.tag_box {
+  list-style: none;
+  margin: 0;
+  overflow: hidden; }
+
+.tag_box li {
+  line-height: 28px; }
+
+.tag_box li i {
+  opacity: 0.9; }
+
+.tag_box.inline li {
+  float: left; }
+
+.tag_box a {
+  padding: 3px 6px;
+  margin: 2px;
+  background: #eee;
+  color: #555;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px dashed #cccccc; }
+
+.tag_box a span {
+  vertical-align: super;
+  font-size: 0.8em; }
+
+.tag_box a:hover {
+  background-color: #e5e5e5; }
+
+.tag_box a.active {
+  background: #57A957;
+  border: 1px solid #4c964d;
+  color: #FFF; }
+
+/* Pagination */
+.pager {
+  margin-bottom: 60px;
+  text-align: left;
+}
+.pager > li > a {
+  width: 140px;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+
+/*
+ * Blog posts
+ */
+
+.blog-post-title {
+  margin-bottom: 5px;
+  font-size: 36px;
+}
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}
+.blog-post p{
+  text-indent: 2em;
+}
+.blog-post .post-reference{
+  padding-left: 2em;
+}
+/*
+ * Footer
+ */
+
+.blog-footer {
+  padding: 40px 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
