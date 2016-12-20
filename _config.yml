@@ -1,8 +1,8 @@
 # Site settings
-title: "田家二妹的记事簿"
-author: "田家二妹"
+title: "Jean Tiny"
+author: "Jean Tiny"
 email: tianqin1103@gmail.com
-description: > 
+description: >
   书写是为了更好的思考
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://tnaught.github.com" # the base hostname & protocol for your site
